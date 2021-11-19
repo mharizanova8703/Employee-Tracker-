@@ -35,7 +35,7 @@ SO THAT I can organize and plan my business
 ```
 
 ## Description
-
+ Data is a back end CMS used to store, track, and update team data directly from your command-line.
 
 
 
@@ -53,6 +53,18 @@ https://watch.screencastify.com/v/Lz8BxspBVEboi268wpIs
 
 
   ## Installation
+  ```
+  
+  cd 'db'
+mysql -u root
+source schema.sql
+quit
+..
+
+  ```
+  
+  
+  
   
    Some guidance  how to build  this app :
    * npm install inquirer (npm install inquirer) 
