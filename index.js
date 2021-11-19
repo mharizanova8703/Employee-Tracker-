@@ -106,6 +106,7 @@ function addDepartment() {
       )
     })
 }
+
 function addRole() {
   var departmentchoices = []
   connection.query(`SELECT  deptname  FROM departments`, function (err, res) {
@@ -148,6 +149,7 @@ function addRole() {
       )
     })
 }
+//function to add employee
 function addEmployee() {
   inquirer
     .prompt([
@@ -189,6 +191,7 @@ function addEmployee() {
       )
     })
 }
+//function to update
 function updateEmployee() {
   inquirer
     .prompt([
