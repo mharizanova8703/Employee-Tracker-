@@ -103,7 +103,7 @@ Fill out the prompts to create your package. json.)
   
   # Contributions 
    
-   * Special Thanks to a @djdyer (helping me for a function addRole , and helping me with addDeoartment)           
+   * Special Thanks to a @djdyer (helping me for a function addRole , and helping me with addDepartment)           
    *  Reference for help with schema.sql : Tutor,
    *  Reference for Help about create databases  : Ask BCS Learning Assistant
    *  Building  more knowledge  through : https://www.w3schools.com/php/php_mysql_intro.asp
