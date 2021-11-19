@@ -8,3 +8,29 @@ const connection = mysql.createConnection({
   password: '8703140618Mari@',
   database: 'employees_db',
 })
+connection.connect(function (err) {
+  if (err) throw err
+  console.log('connected as id ' + connection.threadId)
+
+  //after which function that will be the connection end
+  showTable()
+})
+function dispTable() {
+  inquirer
+    .prompt({
+      type: 'list',
+      choices: [
+        'View departments',
+        'View roles',
+        'View employees',
+        'Add department',
+        'Add role',
+        'Add employee',
+        'Update employee role',
+        'Quit',
+      ],
+       message: 'Make your choice to get started:?',
+      name: 'option',
+    })
+    .then(function (result) {
+      console.log('You entered: ' + result.option)
