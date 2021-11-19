@@ -148,6 +148,47 @@ function addRole() {
       )
     })
 }
+function addEmployee() {
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        message: "What's the employee's First Name :?",
+        name: 'first_name',
+      },
+      {
+        type: 'input',
+        message: "What is the employee's Last name?",
+        name: 'last_name',
+      },
+      {
+        type: 'input',
+        message: 'What is the employees job title?',
+        name: 'role_id',
+      },
+      {
+        type: 'input',
+        message: 'Who is the employees manager?',
+        name: 'manager_id',
+      },
+    ])
+    .then(function (answer) {
+      connection.query(
+        'INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)',
+        [
+          answer.first_name,
+          answer.last_name,
+          answer.role_id,
+          answer.manager_id,
+        ],
+        function (err, res) {
+          if (err) throw err
+          // console.table(res)
+          showTable()
+        },
+      )
+    })
+}
 
 //function addDepartment()
 //function addRole()
