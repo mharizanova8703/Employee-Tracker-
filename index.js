@@ -86,12 +86,75 @@ function viewEmployees() {
     console.table(res)
     showTable()
   })
-  //function addDepartment()
-  //function addRole()
-  //function addEmployee()
-  //function updateEmployee()
+}
+function addDepartment() {
+  inquirer
+    .prompt({
+      type: 'input',
+      message: 'What is the name of the department?',
+      name: 'deptname',
+    })
+    .then(function (answer) {
+      connection.query(
+        'INSERT INTO departments(deptname) VALUES (?)',
+        [answer.deptname],
+        function (err, res) {
+          if (err) throw err
+          // console.log(res)
+          showTable()
+        },
+      )
+    })
+}
+function addRole() {
+  var departmentchoices = []
+  connection.query(`SELECT  deptname  FROM departments`, function (err, res) {
+    if (err) throw err
+    for (let i = 0; i < res.length; i++) {
+      departmentchoices.push(res[i].deptname)
+    }
 
-  //function done() {
-  //connection.end()
-  // process.exit()
+    console.log(departmentchoices)
+  })
+
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        message: "What's the name of the role?",
+        name: 'title',
+      },
+      {
+        type: 'input',
+        message: 'What is the salary for this role?',
+        name: 'salary',
+      },
+      {
+        type: 'list',
+        message: 'What department is this role in?',
+        choices: departmentchoices,
+        name: 'department_id',
+      },
+    ])
+    .then(function (answer) {
+      connection.query(
+        'INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)',
+        [answer.title, answer.salary, answer.department_id],
+        function (err, res) {
+          if (err) throw err
+          console.table(res)
+          showTable()
+        },
+      )
+    })
+}
+
+//function addDepartment()
+//function addRole()
+//function addEmployee()
+//function updateEmployee()
+
+function done() {
+  connection.end()
+  process.exit()
 }
