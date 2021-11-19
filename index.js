@@ -15,7 +15,7 @@ connection.connect(function (err) {
   //after which function that will be the connection end
   showTable()
 })
-function dispTable() {
+function showTable() {
   inquirer
     .prompt({
       type: 'list',
@@ -29,12 +29,12 @@ function dispTable() {
         'Update employee role',
         'Quit',
       ],
-       message: 'Make your choice to get started:?',
+      message: 'Make your choice to get started:?',
       name: 'option',
     })
     .then(function (result) {
       console.log('You entered: ' + result.option)
-       switch (result.option) {
+      switch (result.option) {
         case 'Add department':
           addDepartment()
           break
@@ -62,17 +62,36 @@ function dispTable() {
     })
 }
 
+function viewDepartment() {
+  let query = 'SELECT * FROM departments'
+  connection.query(query, function (err, res) {
+    if (err) throw err
+    console.table(res)
+    showTable()
+  })
+}
 
+function viewRoles() {
+  let query = 'SELECT * FROM roles'
+  connection.query(query, function (err, res) {
+    if (err) throw err
+    console.table(res)
+    showTable()
+  })
+}
+function viewEmployees() {
+  let query = 'SELECT * FROM employees'
+  connection.query(query, function (err, res) {
+    if (err) throw err
+    console.table(res)
+    showTable()
+  })
+  //function addDepartment()
+  //function addRole()
+  //function addEmployee()
+  //function updateEmployee()
 
-function viewDepartment()
-function viewRoles()
-function viewEmployees()
-function addDepartment()
-function addRole()
-function addEmployee()
-function updateEmployee()
-
-function done() {
-  connection.end()
-  process.exit()
+  //function done() {
+  //connection.end()
+  // process.exit()
 }
