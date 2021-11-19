@@ -207,11 +207,11 @@ function updateEmployee() {
     .then(function (answer) {
       connection.query(
         'UPDATE employees SET role_id=? WHERE first_name= ?',
-        [answer.updateRoles, answer.updateName],
+        [answer.updateRole, answer.updateName],
         function (err, res) {
           if (err) throw err
           console.table(res)
-          startScreen()
+          showTable()
         },
       )
     })
