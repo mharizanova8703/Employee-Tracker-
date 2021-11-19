@@ -40,6 +40,10 @@ SO THAT I can organize and plan my business
 
 
  ## Demo Video
+ 
+ https://user-images.githubusercontent.com/85656320/142567928-ab49d968-c22a-421e-b695-11d43623ce05.mp4
+ 
+ 
   
 https://watch.screencastify.com/v/TnkU16TqZzEsyDx1gwQp
 
