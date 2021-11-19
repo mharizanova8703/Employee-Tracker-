@@ -34,3 +34,17 @@ function dispTable() {
     })
     .then(function (result) {
       console.log('You entered: ' + result.option)
+
+
+function viewDepartment()
+function viewRoles()
+function viewEmployees()
+function addDepartment()
+function addRole()
+function addEmployee()
+function updateEmployee()
+
+function done() {
+  connection.end()
+  process.exit()
+}
