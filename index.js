@@ -34,6 +34,34 @@ function dispTable() {
     })
     .then(function (result) {
       console.log('You entered: ' + result.option)
+       switch (result.option) {
+        case 'Add department':
+          addDepartment()
+          break
+        case 'Add role':
+          addRole()
+          break
+        case 'Add employee':
+          addEmployee()
+          break
+        case 'View departments':
+          viewDepartment()
+          break
+        case 'View roles':
+          viewRoles()
+          break
+        case 'View employees':
+          viewEmployees()
+          break
+        case 'Update employee role':
+          updateEmployee()
+          break
+        default:
+          done()
+      }
+    })
+}
+
 
 
 function viewDepartment()
